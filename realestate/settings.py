@@ -153,3 +153,4 @@ EMAIL_HOST_USER = 'Email address here'
 EMAIL_HOST_PASSWORD = 'password here'
 EMAIL_USE_TLS =  True
 DEFAULT_FROM_EMAIL = 'Email address here'
+
