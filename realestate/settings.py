@@ -154,3 +154,9 @@ EMAIL_HOST_PASSWORD = 'password here'
 EMAIL_USE_TLS =  True
 DEFAULT_FROM_EMAIL = 'Email address here'
 
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
