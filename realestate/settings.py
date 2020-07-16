@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -133,10 +134,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'realestate/static')
 ]
 
-# Media files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
 # Messages
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
@@ -154,6 +151,18 @@ EMAIL_HOST_USER = 'Email address here'
 EMAIL_HOST_PASSWORD = 'password here'
 EMAIL_USE_TLS =  True
 DEFAULT_FROM_EMAIL = 'Email address here'
+
+#S3 BUCKETS CONFIG
+
+# AWS_ACCESS_KEY_ID = ''
+# AWS_SECRET_ACCESS_KEY = ''
+# AWS_STORAGE_BUCKET_NAME = ''
+# AWS_S3_HOST = ''
+# AWS_S3_REGION_NAME = ''
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 django_heroku.settings(locals())
