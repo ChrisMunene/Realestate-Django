@@ -20,14 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ptk(fbnn%x6%$225tgor6fhfot6y%9ctywffh!h$-h^3a2c4_n'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -78,21 +74,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'realestate.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'realestatedb',
-        'USER': 'postgres',
-        'PASSWORD': 'XankBz#7%b46',
-        'HOST': 'localhost'
-    }
-}
-
-
-# Password validation
+ Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -143,15 +125,6 @@ MESSAGE_TAGS = {
     messages.WARNING: 'warning'
 }
 
-
-#Email
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'Email address here'
-EMAIL_HOST_PASSWORD = 'password here'
-EMAIL_USE_TLS =  True
-DEFAULT_FROM_EMAIL = 'Email address here'
-
 #S3 BUCKETS CONFIG
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
@@ -163,6 +136,11 @@ AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 
 django_heroku.settings(locals())
