@@ -1,5 +1,5 @@
 # Realestate-Django
-Real-estate listing website
+Real-estate listing website built using Django 3.0, PostgreSQL, Bootstrap and AWS S3
 
 ## Technologies used
 - Django 3.0
